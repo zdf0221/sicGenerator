@@ -1,0 +1,109 @@
+html,
+body,
+#container {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(0.25turn, #752525, #050505, #252575);
+  color: #f3f3f3;
+  font-family: sans-serif;
+}
+
+#container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+#vis {
+  width: 95vmin;
+  height: 95vmin;
+  overflow: visible;
+}
+
+.halo {
+  opacity: 0;
+}
+.note {
+  stroke-width: 0.5;
+  stroke: #151515;
+  fill: rgba(255, 255, 255, 1);
+  opacity: 0.4;
+}
+.hover .note {
+  opacity: 0.7;
+}
+.on .note {
+  fill: #e91e63;
+  opacity: 1;
+}
+
+.pointer-area {
+  stroke: none;
+  opacity: 0;
+}
+
+.controls {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.control-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.controls button {
+  width: 100%;
+  min-width: 7vw;
+  height: 4vh;
+  margin: 2px;
+  background: none;
+  color: white;
+  border: 1px solid white;
+}
+.controls button:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+.controls button.active {
+  background: white;
+  color: black;
+}
+
+#output-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.output-control {
+  padding: 10px;
+}
+.output-control label {
+  padding: 0 5px;
+  font-size: 14px;
+}
+#tempo-label {
+  display: inline-block;
+  width: 30px;
+}
+.midi-required {
+  display: none;
+}
+
+#generating,
+#loading {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 32px;
+}
