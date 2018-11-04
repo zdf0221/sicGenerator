@@ -614,13 +614,15 @@ var MIN_NOTE = 48;
   StartAudioContext(Tone.context, container);
 
 
-  generatingIndicator.addEventListener('submit', function (e) {
-      e.preventDefault()
-    let aimSequence = []
-    for (var i = 0; i < sequences; i++) {
+  genBtn.addEventListener('click', function (e) {
+    console.log('click')
+    var aimSequence = []
+    for (var i = 0; i < sequences.length; i++) {
       if (sequences[i].on){
+        console.log('threr')
           aimSequence.push(result[i])
       }
+      console.log('hereh')
     }
 
     $.ajaxSetup({
@@ -637,10 +639,11 @@ var MIN_NOTE = 48;
       data: JSON.stringify(aimSequence),
       dataType: "json",
       success: function (message) {
-        console.log('suc')
+        console.log(message)
       },
       error: function (message) {
         $("#request-process-patent").html("提交数据失败！");
       }
     });
+    e.preventDefault()
   });
