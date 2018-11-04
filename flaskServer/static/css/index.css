@@ -94,7 +94,9 @@ body,
   display: none;
 }
 
-#generating,
+#generating {
+  z-index：-100
+}
 #loading {
   position: fixed;
   left: 0;

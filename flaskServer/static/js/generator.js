@@ -93,6 +93,7 @@ var MIN_NOTE = 48;
     tonicRight = 0;
   var currentMidiOutput = void 0;
   var transportPlayerId = null;
+  var result
 
   function buildSampler(urlPrefix) {
     return new Tone.Sampler(
@@ -333,6 +334,7 @@ var MIN_NOTE = 48;
 
     then(function (noteSeqs) {return vae.interpolate(noteSeqs, N_INTERPOLATIONS);}).
     then(function (res) {
+      result = res
       while (container.firstChild) {
         container.firstChild.remove();
       }
@@ -610,3 +612,35 @@ var MIN_NOTE = 48;
   });
 
   StartAudioContext(Tone.context, container);
+
+
+  generatingIndicator.addEventListener('submit', function (e) {
+      e.preventDefault()
+    let aimSequence = []
+    for (var i = 0; i < sequences; i++) {
+      if (sequences[i].on){
+          aimSequence.push(result[i])
+      }
+    }
+
+    $.ajaxSetup({
+      headers:
+        { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+          'Access-Control-Allow-Origin': 'http://localhost:5000/apiGiven'
+        }
+
+    });
+    $.ajax({
+      type: "POST",
+      url: "http://127.0.0.1:5000/apiGiven",
+      contentType: "application/json; charset=utf-8",
+      data: JSON.stringify(aimSequence),
+      dataType: "json",
+      success: function (message) {
+        console.log('suc')
+      },
+      error: function (message) {
+        $("#request-process-patent").html("提交数据失败！");
+      }
+    });
+  });

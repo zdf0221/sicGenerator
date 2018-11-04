@@ -5,6 +5,10 @@
   <meta charset="UTF-8">
   <title>Music Generator</title>
   <link rel="stylesheet" type="text/css" href="/static/CSS/index.css">
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
 </head>
 <body>
 <div id="container">
@@ -80,11 +84,13 @@
     <select id="tempo-source-selector" class="midi-required"></select>
     <input id="tempo-selector" type="range" min="10" max="200" step="1" value="90">
     <span id="tempo-label">90</span>
+    <form id="generating">
+      <button id="genBtn">Generating&hellip;</button>
+    </form>
   </div>
   <p>MIDI outputs & clock <a href="https://caniuse.com/#feat=midi">supported on Chrome only</a>.</p>
 </div>
 <div id="loading">Loading models&hellip;</div>
-<div id="generating" style="display: none">Generating&hellip;</div>
 </body>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.5/lodash.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/web-animations-js@2.3.1/web-animations.min.js"></script>
