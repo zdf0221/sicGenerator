@@ -83,6 +83,7 @@ var MIN_NOTE = 48;
   var midiRequiredStuff = Array.from(document.querySelectorAll('.midi-required'));
   var outputSelector = document.querySelector('#output-selector');
   var tempoSourceSelector = document.querySelector('#tempo-source-selector');
+var genBtn = document.querySelector('#genBtn');
 
   var currentStep = 0;
   var sequences = [];
@@ -429,8 +430,8 @@ var MIN_NOTE = 48;
     Tone.Transport.pause();
     generatingIndicator.style.display = 'flex';
     setTimeout(function () {
+      generatingIndicator.style.display = 'none';
       generateSpace().then(function () {
-        generatingIndicator.style.display = 'none';
         setTimeout(function () {return Tone.Transport.start();}, 0);
       });
     }, 0);
