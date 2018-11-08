@@ -95,7 +95,7 @@ body,
 }
 
 #generating {
-  z-index：-100
+  margin: auto;
 }
 #loading {
   position: fixed;
