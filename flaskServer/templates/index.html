@@ -48,33 +48,33 @@
     <g id="vis-halos"></g>
     <g id="vis-elements"></g>
   </svg>
-  <div class="controls">
-    <div class="control-group">
-      <button class="tonic-right active" data-tonic="0">C</button>
-      <button class="tonic-right" data-tonic="1">C&#x266F; / D&#x266d;</button>
-      <button class="tonic-right" data-tonic="2">D</button>
-      <button class="tonic-right" data-tonic="3">E&#x266F; / E&#x266d;</button>
-      <button class="tonic-right" data-tonic="4">E</button>
-      <button class="tonic-right" data-tonic="5">F</button>
-      <button class="tonic-right" data-tonic="6">F&#x266F; / G&#x266d;</button>
-      <button class="tonic-right" data-tonic="7">G</button>
-      <button class="tonic-right" data-tonic="8">G&#x266F; / A&#x266d;</button>
-      <button class="tonic-right" data-tonic="9">A</button>
-      <button class="tonic-right" data-tonic="10">A&#x266F; / B&#x266d;</button>
-      <button class="tonic-right" data-tonic="11">B</button>
-    </div>
-    <div class="control-group">
-      <button class="chord-right active" data-chord="major">Major</button>
-      <button class="chord-right" data-chord="minor">Minor</button>
-      <button class="chord-right" data-chord="major7th">Major 7th</button>
-      <button class="chord-right" data-chord="minor7th">Minor 7th</button>
-      <button class="chord-right" data-chord="dominant7th">Dominant 7th</button>
-      <button class="chord-right" data-chord="sus2">Sus2</button>
-      <button class="chord-right" data-chord="sus4">Sus4</button>
-    </div>
+</div>
+<div class="controls" style="display: none">
+  <div class="control-group">
+    <button class="tonic-right active" data-tonic="0">C</button>
+    <button class="tonic-right" data-tonic="1">C&#x266F; / D&#x266d;</button>
+    <button class="tonic-right" data-tonic="2">D</button>
+    <button class="tonic-right" data-tonic="3">E&#x266F; / E&#x266d;</button>
+    <button class="tonic-right" data-tonic="4">E</button>
+    <button class="tonic-right" data-tonic="5">F</button>
+    <button class="tonic-right" data-tonic="6">F&#x266F; / G&#x266d;</button>
+    <button class="tonic-right" data-tonic="7">G</button>
+    <button class="tonic-right" data-tonic="8">G&#x266F; / A&#x266d;</button>
+    <button class="tonic-right" data-tonic="9">A</button>
+    <button class="tonic-right" data-tonic="10">A&#x266F; / B&#x266d;</button>
+    <button class="tonic-right" data-tonic="11">B</button>
+  </div>
+  <div class="control-group">
+    <button class="chord-right active" data-chord="major">Major</button>
+    <button class="chord-right" data-chord="minor">Minor</button>
+    <button class="chord-right" data-chord="major7th">Major 7th</button>
+    <button class="chord-right" data-chord="minor7th">Minor 7th</button>
+    <button class="chord-right" data-chord="dominant7th">Dominant 7th</button>
+    <button class="chord-right" data-chord="sus2">Sus2</button>
+    <button class="chord-right" data-chord="sus4">Sus4</button>
   </div>
 </div>
-<div id="output-controls">
+<div id="output-controls" style="display: none">
   <div class="output-control midi-required">
     <label for="output-selector">Output</label>
     <select id="output-selector"></select>
@@ -88,12 +88,12 @@
   <p>MIDI outputs & clock <a href="https://caniuse.com/#feat=midi">supported on Chrome only</a>.</p>
 </div>
 <div>
-  <form id="gtnForm">
-      <button id="genBtn">Generating&hellip;</button>
+  <form id="gtnForm" style="text-align: center">
+      <button id="genBtn" type="submit">Generating&hellip;</button>
     </form>
 </div>
-<div id="generating">Loading models&hellip;</div>
-<div id="loading">Loading models&hellip;</div>
+<div id="generating"></div>
+<div id="loading"></div>
 </body>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.5/lodash.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/web-animations-js@2.3.1/web-animations.min.js"></script>

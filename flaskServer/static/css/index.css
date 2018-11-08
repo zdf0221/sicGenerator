@@ -4,7 +4,7 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
-  background: linear-gradient(0.25turn, #752525, #050505, #252575);
+  background: linear-gradient(#e66465, #9198e5);
   color: #f3f3f3;
   font-family: sans-serif;
 }
