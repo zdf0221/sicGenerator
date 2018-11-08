@@ -96,6 +96,8 @@ var genBtn = document.querySelector('#genBtn');
   var transportPlayerId = null;
   var result
 
+  var myVelocity = ''
+
   function buildSampler(urlPrefix) {
     return new Tone.Sampler(
       _.fromPairs(
@@ -578,6 +580,7 @@ var genBtn = document.querySelector('#genBtn');
       };var
 
       onTempoSourceChange = function onTempoSourceChange() {
+        myVelocity = inputId
         var inputId = tempoSourceSelector.value;
         if (inputId === 'internal') {var _iteratorNormalCompletion7 = true;var _didIteratorError7 = false;var _iteratorError7 = undefined;try {
           for (var _iterator7 = WebMidi.inputs[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {var input = _step7.value;
@@ -593,6 +596,7 @@ var genBtn = document.querySelector('#genBtn');
         } else {
           stopTransportPlay();
           var _input = WebMidi.getInputById(inputId);
+          
           _input.addListener('start', 'all', incomingMidiClockStart);
           _input.addListener('stop', 'all', incomingMidiClockStop);
           _input.addListener('clock', 'all', incomingMidiClockTick);
@@ -616,12 +620,15 @@ var genBtn = document.querySelector('#genBtn');
 
 
   genBtn.addEventListener('click', function (e) {
-    console.log('click')
+    
+    let v = document.querySelector('#tempo-selector').value
     var aimSequence = []
     for (var i = 0; i < sequences.length; i++) {
       if (sequences[i].on){
-        console.log('threr')
-          aimSequence.push(result[i])
+        for(let m = 0; m < result[i].notes.length; m++){
+          result[i].notes[m].velocity = v
+        }
+        aimSequence.push(result[i])
       }
       console.log('hereh')
     }
